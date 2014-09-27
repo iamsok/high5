@@ -1,5 +1,6 @@
 %h1 Welcome to high 5!
 -if current_user
-  -current_user.friends(current_token).each do |status|
-    =status["statuses"]["data"][0]["message"]
+  %ul
+    -current_user.friends(current_token).each do |status|
+      %li=status["statuses"]["data"][0]["message"]
 
