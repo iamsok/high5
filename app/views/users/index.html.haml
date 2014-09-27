@@ -1,5 +1,4 @@
 %h1 Welcome to high 5!
+-if current_user
+  =current_user.friends(current_token)
 
-/ %ul
-/   - @friends.each do |friend|
-/     %li= friend

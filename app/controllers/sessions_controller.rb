@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
     token = auth["credentials"]["token"]
 
     @graph = Koala::Facebook::API.new(token)
-    binding.pry
-    # @friends = @graph.get_connections("me", "friends")
+    @friends = @graph.get_connections("me", "friends")
 
     session[:user_id] = user.id
+    session[:user_token] = token
     redirect_to root_url, :notice => "Signed in!"
+
   end
 
   def destroy
