@@ -2,5 +2,8 @@
 -if current_user
   %ul
     -current_user.friends(current_token).each do |status|
-      %li=status["statuses"]["data"][0]["message"]
+      -status["statuses"]["data"].each do |m|
+        %li
+          %h4=m["from"]["name"]
+          =m["message"]
 
