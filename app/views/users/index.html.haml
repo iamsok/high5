@@ -1,4 +1,5 @@
 %h1 Welcome to high 5!
 -if current_user
-  =current_user.friends(current_token)
+  -current_user.friends(current_token).each do |status|
+    =status["statuses"]["data"][0]["message"]
 
